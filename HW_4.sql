@@ -11,3 +11,9 @@ FROM likes
 JOIN users ON likes.user_id = users.id
 JOIN profiles ON users.id = profiles.user_id 
 GROUP BY gender;
+
+/*Вывести всех пользователей, которые не отправляли сообщения.*/
+SELECT users.id, from_user_id AS nomess
+FROM users
+LEFT JOIN messages ON messages.from_user_id = users.id 
+GROUP BY users.id;
